@@ -1,0 +1,24 @@
+.root {
+  /* colors */
+  --color-primary: #6200ee;
+  --color-secondary: #03dac6;
+  --color-background: #fff;
+  --color-error: #b00020;
+
+  /* font */
+  --font-family: "Roboto", sans-serif;
+  --font-size-base: 16px;
+  --font-size-small: 14px;
+  --font-size-large: 18px;
+
+  /* Spacing */
+  --spacing-unit: 8px;
+
+  /* Border Radius */
+  --border-radius: 4px;
+
+  /* Shadows */
+  --box-shadow-low: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --box-shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-high: 0 8px 10px rgba(0, 0, 0, 0.15);
+}

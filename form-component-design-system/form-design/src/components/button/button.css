@@ -1,0 +1,23 @@
+@import url("../styles/variables.css");
+
+.button {
+  padding: calc(var(--spacing-unit) * 1.5);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.button--flat {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: none;
+}
+
+.button--elevated {
+  background-color: var(--color-primary);
+  color: white;
+  box-shadow: var(--box-shadow-low);
+}
