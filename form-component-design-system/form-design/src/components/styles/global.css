@@ -1,4 +1,27 @@
-@import url("../styles/variables.css");
+.root {
+  /* colors */
+  --color-primary: #6200ee;
+  --color-secondary: #03dac6;
+  --color-background: #fff;
+  --color-error: #b00020;
+
+  /* font */
+  --font-family: "Roboto", sans-serif;
+  --font-size-base: 16px;
+  --font-size-small: 14px;
+  --font-size-large: 18px;
+
+  /* Spacing */
+  --spacing-unit: 8px;
+
+  /* Border Radius */
+  --border-radius: 4px;
+
+  /* Shadows */
+  --box-shadow-low: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --box-shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-high: 0 8px 10px rgba(0, 0, 0, 0.15);
+}
 
 body {
   font-family: var(--font-family);
@@ -7,4 +30,26 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+button {
+  padding: calc(var(--spacing-unit) * 1.5);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.button--flat {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: none;
+}
+
+.button--elevated {
+  background-color: var(--color-primary);
+  color: rgb(163, 12, 12);
+  box-shadow: var(--box-shadow-low);
 }

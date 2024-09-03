@@ -13,7 +13,7 @@ const Button = ({ text, onClick, variant }) => {
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   onClick: PropTypes.func,
-  variant: PropTypes.oneOf(["flat"]),
+  variant: PropTypes.oneOf(["flat", "elevated"]),
 };
 
 Button.defaultProps = {
