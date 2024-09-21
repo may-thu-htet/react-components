@@ -3,7 +3,7 @@ import amazonData from "./data/leetcode_amazon_interview_Qs_mixed.json";
 import "./App.css";
 
 function App() {
-  const columns = ["title", "difficulty", "paid only", "frequency"];
+  const columns = ["title", "difficulty", "Fees", "frequency"];
   return <TableComponent data={amazonData.questions} columns={columns} />;
 }
 
