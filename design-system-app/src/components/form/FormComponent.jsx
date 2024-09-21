@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { httpRequest } from "../utils/httpRequest";
+import { httpRequest } from "../../utils/httpRequest";
 import Button from "../button/Button";
 import Input from "../input/Input";
 import Card from "../card/card";
@@ -23,7 +23,7 @@ const FormComponent = () => {
     } catch (error) {
       setError(error.message);
     } finally {
-      setLoading(false);  
+      setLoading(false);
     }
   }
 
