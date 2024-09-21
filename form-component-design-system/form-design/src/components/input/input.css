@@ -1,1 +1,6 @@
 @import url("../styles/variables.css");
+
+.input-container {
+  display: flex;
+  gap: calc(var(--spacing-unit) * 1.5);
+}

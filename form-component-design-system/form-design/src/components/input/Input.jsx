@@ -5,6 +5,9 @@ import "./input.css";
 const Input = ({ type, name, value, label, onChange }) => {
   return (
     <div className="input-container">
+      <label htmlFor={name} className="label">
+        {label}
+      </label>
       <input
         className={`input ${value ? "input--filled" : ""}`}
         type={type}
@@ -13,9 +16,6 @@ const Input = ({ type, name, value, label, onChange }) => {
         value={value}
         id={name}
       ></input>
-      <label htmlFor={name} className="label">
-        {label}
-      </label>
     </div>
   );
 };

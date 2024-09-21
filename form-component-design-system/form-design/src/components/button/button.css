@@ -18,6 +18,6 @@
 
 .button--elevated {
   background-color: var(--color-primary);
-  color: rgb(163, 12, 12);
+  color: var(--color-background);
   box-shadow: var(--box-shadow-low);
 }
