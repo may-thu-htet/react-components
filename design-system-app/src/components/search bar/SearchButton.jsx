@@ -1,9 +1,9 @@
 import React from "react";
 import "./searchButton.css";
 
-function SearchButton({ value }) {
+function SearchButton({ value, onClick }) {
   return (
-    <button className="search-button" type="submit">
+    <button className="search-button" type="submit" onClick={onClick}>
       {" "}
       {value}{" "}
     </button>

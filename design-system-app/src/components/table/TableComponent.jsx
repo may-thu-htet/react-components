@@ -1,12 +1,32 @@
-import React, { Fragment } from "react";
+import React, { useState } from "react";
 import "./table.css";
 import SearchBar from "../search bar/SearchBar";
 
 function TableComponent({ columns, data, renderers }) {
-  const totalPb = data.length;
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredData, setFilteredData] = useState(data);
+
+  function handleSearch() {
+    const lowerCaseQuery = searchQuery.toLowerCase();
+    const newFilteredData = data.filter((item) => {
+      return columns.some((col) => {
+        return (
+          item[col] &&
+          item[col].toString().toLowerCase().includes(lowerCaseQuery)
+        );
+      });
+    });
+    setFilteredData(newFilteredData);
+  }
+
+  const totalPb = filteredData.length;
   return (
     <div className="table-wrapper">
-      <SearchBar />
+      <SearchBar
+        userInput={searchQuery}
+        setUserInput={setSearchQuery}
+        onSearch={handleSearch}
+      />
       <table className="table">
         <thead className="table-head">
           <tr className="table-row-header">
@@ -20,21 +40,27 @@ function TableComponent({ columns, data, renderers }) {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
-            <tr key={index} className="table-row-body">
-              {columns.map((col) => {
-                return (
-                  <td className="table-body-cell" key={col}>
-                    {col === "title"
-                      ? `${index + 1}. ${item.title}`
-                      : renderers[col]
-                      ? renderers[col](item)
-                      : item[col] || ""}
-                  </td>
-                );
-              })}
+          {filteredData.length > 0 ? (
+            filteredData.map((item, index) => (
+              <tr key={index} className="table-row-body">
+                {columns.map((col) => {
+                  return (
+                    <td className="table-body-cell" key={col}>
+                      {col === "title"
+                        ? `${index + 1}. ${item.title}`
+                        : renderers[col]
+                        ? renderers[col](item)
+                        : item[col] || ""}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={columns.length}>No result found.</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>
