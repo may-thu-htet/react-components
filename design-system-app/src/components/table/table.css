@@ -1,5 +1,5 @@
 .table-wrapper {
-  width: 60%;
+  width: 70%;
   margin: 20px auto;
 }
 
@@ -9,6 +9,7 @@
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0;
+  box-shadow: 0.5px 0.5px #e0e0e0, -1px 0.5px #e0e0e0;
 }
 
 .table-head {
@@ -26,6 +27,16 @@
   border-bottom: #76c7c0 1px solid;
   box-shadow: 0.5px 0.5px #76c7c0;
   padding: 0 5px;
+}
+
+.table-header-cell:first-child,
+.table-body-cell:first-child {
+  width: 82%;
+}
+
+.table-header-cell:not(:first-child),
+.table-body-cell:not(:first-child) {
+  width: 18%;
 }
 
 .table-row-body {

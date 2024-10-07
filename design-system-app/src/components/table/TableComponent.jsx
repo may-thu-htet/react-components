@@ -8,14 +8,26 @@ function TableComponent({ columns, data, renderers }) {
 
   function handleSearch() {
     const lowerCaseQuery = searchQuery.toLowerCase();
+
+    if (lowerCaseQuery === "") {
+      setFilteredData(data);
+      return;
+    }
+
     const newFilteredData = data.filter((item) => {
       return columns.some((col) => {
-        return (
-          item[col] &&
-          item[col].toString().toLowerCase().includes(lowerCaseQuery)
-        );
+        const columnValue = item[col];
+        if (columnValue === null || columnValue === undefined) {
+          // If the value is null or undefined, skip it
+          return false;
+        }
+
+        // Convert value to string and check if it matches the search query
+        return columnValue.toString().toLowerCase().includes(lowerCaseQuery);
       });
     });
+
+    // Update filtered data
     setFilteredData(newFilteredData);
   }
 

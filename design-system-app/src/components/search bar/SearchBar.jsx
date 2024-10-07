@@ -1,11 +1,12 @@
 import React from "react";
-import SearchButton from "./SearchButton";
+// import SearchButton from "./SearchButton";
 import SearchInput from "./SearchInput";
 import "./searchBar.css";
 
 function SearchBar({ userInput, setUserInput, onSearch }) {
   function handleChange(e) {
     setUserInput(e.target.value);
+    onSearch();
   }
 
   return (
@@ -18,7 +19,7 @@ function SearchBar({ userInput, setUserInput, onSearch }) {
         onChange={handleChange}
         placeholder="Enter your item to search"
       ></SearchInput>
-      <SearchButton value="Search" onClick={onSearch} />
+      {/* <SearchButton value="Search" onClick={onSearch} /> */}
     </div>
   );
 }
