@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./table.css";
 import SearchBar from "../search bar/SearchBar";
+import filter from "../../utils/filter";
 
 function TableComponent({ columns, data, renderers }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -14,18 +15,7 @@ function TableComponent({ columns, data, renderers }) {
       return;
     }
 
-    const newFilteredData = data.filter((item) => {
-      return columns.some((col) => {
-        const columnValue = item[col];
-        if (columnValue === null || columnValue === undefined) {
-          // If the value is null or undefined, skip it
-          return false;
-        }
-
-        // Convert value to string and check if it matches the search query
-        return columnValue.toString().toLowerCase().includes(lowerCaseQuery);
-      });
-    });
+    const newFilteredData = filter(data, columns, lowerCaseQuery);
 
     // Update filtered data
     setFilteredData(newFilteredData);

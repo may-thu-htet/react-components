@@ -9,16 +9,15 @@ function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/amazon-list">Amazon Questions List</Link>
-            </li>
-            <li>
-              <Link to="/google-list">Google Questions List</Link>
-            </li>
-          </ul>
-        </nav>
+        <ul>
+          <li>
+            <Link to="/amazon-list">Amazon Questions List</Link>
+          </li>
+          <li>
+            <Link to="/google-list">Google Questions List</Link>
+          </li>
+        </ul>
+
         <Routes>
           <Route path="/amazon-list" element={<AmazonList />}></Route>
           <Route path="/google-list" element={<GoogleList />}></Route>
